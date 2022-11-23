@@ -87,10 +87,10 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 func (m model) View() string {
 	if m.choice != "" {
-		return quitTextStyle.Render(fmt.Sprintf("%s? Sounds good to me.", m.choice))
+		return quitTextStyle.Render(fmt.Sprintf("%s? Seems like a good choice.", m.choice))
 	}
 	if m.quitting {
-		return quitTextStyle.Render("Not hungry? That’s cool.")
+		return quitTextStyle.Render("Not going? That’s cool.")
 	}
 	return "\n" + m.list.View()
 }
@@ -115,7 +115,7 @@ func main() {
     const defaultWidth = 20
 
     l := list.New(items, itemDelegate{}, defaultWidth, listHeight)
-    l.Title = "What items will you need?"
+    l.Title = "What item are you taking??"
     l.SetShowStatusBar(true)
     l.SetFilteringEnabled(false)
     l.Styles.Title = titleStyle
